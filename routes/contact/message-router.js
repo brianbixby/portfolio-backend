@@ -1,6 +1,7 @@
 'use strict';
 
 const { Router, json } = require('express');
+const nodemailer = require('nodemailer');
 const debug = require('debug')('portfoliobackend:message-router');
 const createError = require('http-errors');
 
@@ -20,7 +21,23 @@ messageRouter.post('/api/message', json(), (req, res, next) => {
   if(errorMessage)
     return next(createError(400, `BAD REQUEST ERROR: ${message}`));
 
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'portfoliobrianbixby@gmail.com',
+      pass: 'Thailand2017',
+    },
+  });
+  const text = `name: ${name} \n\n email: ${email} \n\n message: ${message}`; 
+  const mailOptions = {
+    from: 'portfoliobrianbixby@gmail.com',
+    to: 'brianbixby0@gmail.com',
+    subject: '*** Portfolio Contact ***',
+    text: text,
+  };
+
   new Message(req.body).save()
+    .then(() => transporter.sendMail(mailOptions))
     .then(() => res.sendStatus(200))
     .catch(next);
 });
