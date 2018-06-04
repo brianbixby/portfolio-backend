@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/brianbixby/bracket-busters-back-end/badge.svg?branch=master)](https://coveralls.io/github/brianbixby/bracket-busters-back-end?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/brianbixby/portfolio-backend/badge.svg?branch=dev)](https://coveralls.io/github/brianbixby/portfolio-backend?branch=dev)
 
 ## Project: Portfolio Backend (My Portfolio)
 
@@ -75,5 +75,3 @@ Information about the frontend of Bracket Busters can be found here: [Bracket Bu
   - Jest          
   - Redux-devtools-extension
   - Redux-logger  
-
-<!-- "test": "DEBUG='portfoliobackend*' jest -i --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js", -->
