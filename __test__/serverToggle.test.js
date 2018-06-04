@@ -1,5 +1,6 @@
 const serverToggle = require('../lib/server-toggle.js');
 const server = require('../server.js');
+const nodemailer = require('nodemailer');
 
 describe('serverToggle', function() {
   describe('server on', () => {
