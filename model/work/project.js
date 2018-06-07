@@ -9,6 +9,7 @@ const projectSchema = mongoose.Schema({
   fullDesc: {type: String, required: true },
   site: {type: String, required: true },
   github: {type: String, required: true },
+  image: {type: String, required: true },
 });
 
 module.exports = mongoose.model('project', projectSchema);
