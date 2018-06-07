@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const messageRouter = require('./contact/message-router.js');
+const projectRouter = require('./work/project-router.js');
 const errors = require('./../lib/error-middleware.js');
 
 module.exports = new Router()
@@ -15,5 +16,6 @@ module.exports = new Router()
     }),
     morgan('dev'),
     messageRouter,
+    projectRouter,
     errors,
   ]);
