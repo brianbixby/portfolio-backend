@@ -1,7 +1,6 @@
 'use strict';
 
 const request = require('superagent');
-const nodemailer = require('nodemailer');
 const Message = require('../model/contact/message.js');
 const serverToggle = require('../lib/server-toggle.js');
 const server = require('../server.js');
