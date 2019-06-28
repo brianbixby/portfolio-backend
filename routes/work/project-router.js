@@ -25,8 +25,6 @@ projectRouter.get('/api/projects', (req, res, next) => {
     .then(projects => {
       if(!projects)
         return next(createError(404, 'NOT FOUND ERROR: projects not found'));
-
-      console.log(projects);
       res.json(projects);
     })
     .catch(next);
@@ -37,10 +35,10 @@ projectRouter.get('/api/project/:url', (req, res, next) => {
   debug('GET: /api/project/:url'); 
 
   Project.find({ url: req.params.url })
-    .then(projects => {
-      if(!projects)
+    .then(project => {
+      if(!project)
         return next(createError(404, 'NOT FOUND ERROR: projects not found'));
-      res.json(projects);
+      res.json(project[0]);
     })
     .catch(next);
 });
