@@ -8,11 +8,19 @@ const messageRouter = require('./contact/message-router.js');
 const projectRouter = require('./work/project-router.js');
 const errors = require('./../lib/error-middleware.js');
 
+const whiteList = [process.env.CORS_ORIGINS, process.env.CORS_ORIGINS2];
+
 module.exports = new Router()
   .use([
     cors({
       credentials: true,
-      origin: process.env.CORS_ORIGINS,
+      origin: (origin, cb) => {
+        if (whiteList.indexOf(origin) !== -1) {
+          cb(null, true);
+        } else {
+          cb(new Error('Not allowed by CORS'));
+        }
+      },
     }),
     morgan('dev'),
     messageRouter,
