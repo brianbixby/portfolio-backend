@@ -18,7 +18,7 @@ module.exports = new Router()
         if (whiteList.indexOf(origin) !== -1) {
           cb(null, true);
         } else {
-          cb(new Error('Not allowed by CORS'));
+          cb(new Error(`${origin} Not allowed by CORS`));
         }
       },
     }),
