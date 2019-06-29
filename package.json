@@ -2,6 +2,11 @@
   "name": "portfoliobackend",
   "version": "1.0.0",
   "description": "The backend for my portfolio",
+  "engines": {
+    "node": "12.4.0",
+    "yarn": "1.17.0",
+    "npm": "6.9.0"
+  },
   "main": "server.js",
   "directories": {
     "lib": "lib"

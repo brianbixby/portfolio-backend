@@ -24,20 +24,25 @@ messageRouter.post('/api/message', json(), (req, res, next) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'portfoliobrianbixby@gmail.com',
+      user: 'brianbixby0@gmail.com',
       pass: 'Thailand2017',
     },
   });
-  const text = `name: ${name} \n\n email: ${email} \n\n message: ${message}`; 
   const mailOptions = {
-    from: 'portfoliobrianbixby@gmail.com',
-    to: 'brianbixby0@gmail.com',
+    from: 'brianbixby0@gmail.com',
+    to: email,
     subject: '*** Portfolio Contact ***',
-    text: text,
+    html: `<p>Thanks for reaching out. I will be in contact with you soon!</p>
+            <p>Best,</p>
+            <p>Brian</p>
+            <p>425.770.2609</p>`,
   };
 
   new Message(req.body).save()
-    .then(() => transporter.sendMail(mailOptions))
+    .then(() => {
+      return transporter.sendMail(mailOptions)
+        .catch(next);
+    })
     .then(() => res.sendStatus(200))
     .catch(next);
 });
