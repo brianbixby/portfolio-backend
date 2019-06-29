@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').load();
+require('dotenv').config();
 const express = require('express');
 const debug = require('debug')('portfoliobackend:server');
 const mongoose = require('mongoose');
