@@ -24,14 +24,14 @@ messageRouter.post('/api/message', json(), (req, res, next) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'brianbixby0@gmail.com',
-      pass: 'Thailand2017',
+      user: process.env.EMAIL,
+      pass: process.env.EMAILPASSWORD,
     },
   });
   const mailOptions = {
-    from: 'brianbixby0@gmail.com',
+    from: process.env.EMAIL,
     to: email,
-    subject: '*** Portfolio Contact ***',
+    subject: '*** Built By Bixby ***',
     html: `<p>Thanks for reaching out. I will be in contact with you soon!</p>
             <p>Best,</p>
             <p>Brian</p>
