@@ -1,20 +1,15 @@
-[![Coverage Status](https://coveralls.io/repos/github/brianbixby/portfolio-backend/badge.svg?branch=dev)](https://coveralls.io/github/brianbixby/portfolio-backend?branch=dev)
+## Project: Portfolio
 
-## Project: Portfolio Backend (My Portfolio)
-
-My portfolio has a simple backend for users so submit contact forms.
-
+A custom Web Development portfolio.
 
 ## Frontend
 
-Information about the frontend of Bracket Busters can be found here: [Bracket Busters Frontend](https://github.com/brianbixby/bracket-busters-frontend)
+Information about the frontend of my Portfolio can be found here: [Portfolio Frontend](https://github.com/brianbixby/portfolio-frontend)
 
 ## Tech/frameworks/packages
 
 - Node 
 - MongoDB
-- Travis
-- Coveralls
 - Heroku
 - Github
 - NPM/Yarn
@@ -23,12 +18,14 @@ Information about the frontend of Bracket Busters can be found here: [Bracket Bu
     - Cors
     - Coveralls
     - Debug 
+    - Del 
     - Dotenv 
     - Express  
     - Http-errors 
-    - Istanbul 
     - Mongoose 
     - Morgan
+    - Nodemailer
+    - Nyc
   - Development
     - Eslint
     - Jest
@@ -52,12 +49,15 @@ Information about the frontend of Bracket Busters can be found here: [Bracket Bu
   - React-dom          
   - React-redux          
   - React-router          
-  - React-router-dom          
+  - React-router-dom  
+  - React-scroll-to-component        
   - Redux                          
   - Superagent                  
   - Validator                  
 - devDependencies:
+  - Babel-eslint
   - Babel-jest
+  - Babel-plugin-static-fs
   - Babel-plugin-stylus-compiler
   - Babel-plugin-transform-async-to-generator
   - Babel-plugin-transform-css-import-to-string
@@ -71,7 +71,7 @@ Information about the frontend of Bracket Busters can be found here: [Bracket Bu
   - Enzyme          
   - Enzyme-adapter-react-16          
   - Eslint          
-  - Eslint-plugin-react          
-  - Jest          
+  - Eslint-config-airbnb       
+  - Jest    
   - Redux-devtools-extension
   - Redux-logger  
