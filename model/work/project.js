@@ -13,8 +13,6 @@ const projectSchema = mongoose.Schema({
   site: {type: String },
   github: {type: String },
   image: {type: String, required: true },
-  bwImage: {type: String },
-  bigImage: {type: String },
   projects: [{projectName: String, projectGithub: String, projectDesc: String }],
 });
 
