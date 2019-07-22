@@ -12,6 +12,7 @@
     "lib": "lib"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "coveralls": "^3.0.4",
     "debug": "^4.1.1",
