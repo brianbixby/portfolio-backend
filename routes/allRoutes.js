@@ -16,12 +16,9 @@ module.exports = new Router()
     cors({
       credentials: true,
       origin: (origin, cb) => {
-        // if (whiteList.indexOf(origin) !== -1 || origin === undefined) {
-        if (whiteList.length) {
-          console.log('origin ok: ', origin);
+        if (whiteList.indexOf(origin) !== -1 || origin === undefined) {
           cb(null, true);
         } else {
-          console.log('origin no: ', origin);
           cb(new Error(`${origin} Not allowed by CORS`));
         }
       },
