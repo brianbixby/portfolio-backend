@@ -4,11 +4,12 @@ const Router = require('express').Router;
 const morgan = require('morgan');
 const cors = require('cors');
 
+const bindResponseMethods = require('./../lib/bind-response-methods.js');
 const messageRouter = require('./contact/message-router.js');
 const projectRouter = require('./work/project-router.js');
 const errors = require('./../lib/error-middleware.js');
 
-const whiteList = [process.env.CORS_ORIGINS, process.env.CORS_ORIGINS2];
+let whiteList = [process.env.CORS_ORIGINS, process.env.CORS_ORIGINS2];
 
 module.exports = new Router()
   .use([
@@ -16,13 +17,16 @@ module.exports = new Router()
       credentials: true,
       origin: (origin, cb) => {
         if (whiteList.indexOf(origin) !== -1 || origin === undefined) {
+          console.log('origin ok: ', origin);
           cb(null, true);
         } else {
+          console.log('origin no: ', origin);
           cb(new Error(`${origin} Not allowed by CORS`));
         }
       },
     }),
     morgan('dev'),
+    bindResponseMethods,
     messageRouter,
     projectRouter,
     errors,
