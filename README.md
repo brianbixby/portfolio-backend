@@ -22,7 +22,6 @@ Information about the frontend of Bracket Busters can be found here: [Bracket Bu
   - Production
     - Cors
     - Coveralls
-    - Debug 
     - Dotenv 
     - Express  
     - Http-errors 

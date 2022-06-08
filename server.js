@@ -1,20 +1,22 @@
-'use strict';
+"use strict";
 
-require('dotenv').load();
 const express = require('express');
-const debug = require('debug')('portfoliobackend:server');
-const mongoose = require('mongoose');
+const db = require('./config/connection');
+const routes = require('./routes/allRoutes');
 
-const allRoutes = require('./routes/allRoutes.js');
-
+const PORT = process.env.PORT || 3001;
 const app = express();
-const PORT = process.env.PORT || 3000;
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
-app.use(allRoutes);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(routes);
 
-const server = module.exports = app.listen(PORT, () => {
-  debug(`portfolio is running on: ${PORT}`);
+db.once('open', (err, resp) => {
+	if (err) {
+		console.log("*** db connection err: ***", err);
+	} else {
+		app.listen(PORT, () => {
+			console.log(`API server running on port ${PORT}!`);
+		});
+	}
 });
-
-server.isRunning = true;

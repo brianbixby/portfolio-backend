@@ -1,8 +1,7 @@
 'use strict';
 
-const { Router, json } = require('express');
+const { Router } = require('express');
 const nodemailer = require('nodemailer');
-const debug = require('debug')('portfoliobackend:message-router');
 const createError = require('http-errors');
 
 const Message = require('../../model/contact/message.js');
@@ -10,8 +9,7 @@ const Message = require('../../model/contact/message.js');
 const messageRouter = module.exports = Router();
 
 // http POST :3000/api/message name='jon smith' email='example@example.com' message='example message'
-messageRouter.post('/api/message', json(), (req, res, next) => {
-  debug('POST: /api/message'); 
+messageRouter.post('/api/message', (req, res, next) => {
   const { name, email, message } = req.body;
   const errorMessage = !name ? 'expected a name'
     : !email ? 'expected an email'
