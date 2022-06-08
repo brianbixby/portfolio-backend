@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const projectSchema = mongoose.Schema({
+const projectSchema = new mongoose.Schema({
   url: {type: String, required: true },
   name: {type: String, required: true },
   shortDesc: {type: String, required: true },
