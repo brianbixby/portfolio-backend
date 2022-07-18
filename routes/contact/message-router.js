@@ -23,7 +23,7 @@ messageRouter.post('/api/message', (req, res, next) => {
     service: 'Gmail',
     auth: {
       user: 'portfoliobrianbixby@gmail.com',
-      pass: 'Thailand2017',
+      pass: process.env.APP_PASSWORD
     },
   });
   const text = `name: ${name} \n\n email: ${email} \n\n message: ${message}`; 
@@ -37,5 +37,8 @@ messageRouter.post('/api/message', (req, res, next) => {
   new Message(req.body).save()
     .then(() => transporter.sendMail(mailOptions))
     .then(() => res.sendStatus(200))
-    .catch(next);
+    .catch(err => {
+        console.log("err: ", err);
+        next(err);
+    });
 });
